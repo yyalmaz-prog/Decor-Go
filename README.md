@@ -268,6 +268,7 @@ footer {
     <button onclick="showPage('inspection', this)">📐 معاينة مجانية</button>
     <button onclick="showPage('contest', this)">🎁 ادخل السحب</button>
     <button onclick="showPage('download', this)">📲 تحميل التطبيق</button>
+    <button onclick="showPage('rubble', this)">🚚 ترحيل ردم</button>
 </nav>
 
 
@@ -514,6 +515,39 @@ https://t.me/DecorGoagha
 </section>
 
 
+<!-- ترحيل ردم -->
+<section id="rubble" class="page">
+
+    <div class="card">
+
+        <h2>🚚 ترحيل ردم</h2>
+
+        <p class="description">
+            املأ المعلومات التالية وسنتواصل معك عبر واتساب لتنسيق خدمة ترحيل الردم.
+        </p>
+
+        <form onsubmit="sendRubble(event)">
+
+            <label>الاسم</label>
+            <input type="text" id="rubbleName" required>
+
+            <label>العنوان</label>
+            <input type="text" id="rubbleAddress" required>
+
+            <label>العنوان بالتفصيل</label>
+            <textarea id="rubbleDetailedAddress" required></textarea>
+
+            <button class="main-button" type="submit">
+                📲 إرسال المعلومات إلى واتساب
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
 <footer>
     <strong>DECOR GO</strong><br>
     منصة خدمات الإكساء والديكور<br>
@@ -629,6 +663,26 @@ function sendContest(event) {
         "🎁 تسجيل في السحب الشهري - DECOR GO\n\n" +
         "الاسم: " + name + "\n" +
         "رقم الهاتف: " + phone;
+
+    openWhatsApp(message);
+}
+
+
+/* إرسال طلب ترحيل ردم */
+
+function sendRubble(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("rubbleName").value;
+    const address = document.getElementById("rubbleAddress").value;
+    const detailedAddress = document.getElementById("rubbleDetailedAddress").value;
+
+    const message =
+        "🚚 طلب ترحيل ردم - DECOR GO\n\n" +
+        "الاسم: " + name + "\n" +
+        "العنوان: " + address + "\n" +
+        "العنوان بالتفصيل: " + detailedAddress;
 
     openWhatsApp(message);
 }
