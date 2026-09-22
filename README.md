@@ -186,6 +186,31 @@ textarea {
     line-height: 1.8;
 }
 
+/* صندوق الدعوات */
+.invite-box {
+    background: #fafafa;
+    border: 1px solid #e2e2e2;
+    border-radius: 14px;
+    padding: 20px;
+    margin: 20px 0;
+    line-height: 2;
+}
+
+.invite-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.invite-highlight {
+    background: #fff8df;
+    border-right: 5px solid #d4a017;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    line-height: 1.9;
+}
+
 /* التحميل */
 .download-box {
     display: grid;
@@ -264,11 +289,31 @@ footer {
 
 <nav>
     <button class="active" onclick="showPage('home', this)">🏠 الرئيسية</button>
-    <button onclick="showPage('service', this)">🛠️ اطلب خدمة</button>
-    <button onclick="showPage('inspection', this)">📐 معاينة مجانية</button>
-    <button onclick="showPage('contest', this)">🎁 ادخل السحب</button>
-    <button onclick="showPage('download', this)">📲 تحميل التطبيق</button>
-    <button onclick="showPage('rubble', this)">🚚 ترحيل ردم</button>
+
+    <button onclick="showPage('service', this)">
+        🛠️ اطلب خدمة
+    </button>
+
+    <button onclick="showPage('inspection', this)">
+        📐 معاينة مجانية
+    </button>
+
+    <button onclick="showPage('contest', this)">
+        🎁 ادخل السحب
+    </button>
+
+    <!-- التبويبة الجديدة -->
+    <button onclick="showPage('invite', this)">
+        👥 ادعُ أصدقاءك
+    </button>
+
+    <button onclick="showPage('download', this)">
+        📲 تحميل التطبيق
+    </button>
+
+    <button onclick="showPage('rubble', this)">
+        🚚 ترحيل ردم
+    </button>
 </nav>
 
 
@@ -293,19 +338,16 @@ footer {
             🎁 سحب شهري على جوائز نقدية
         </div>
 
-        <!-- معاينة مجانية -->
         <button class="main-button gold-button home-button"
                 onclick="showPageById('inspection')">
             📐 اطلب معاينة مجانية
         </button>
 
-        <!-- تحميل التطبيق -->
         <button class="main-button home-button download-home"
                 onclick="showPageById('download')">
             📲 تحميل التطبيق
         </button>
 
-        <!-- السحب -->
         <button class="main-button home-button contest-home"
                 onclick="showPageById('contest')">
             🎁 ادخل السحب
@@ -477,6 +519,105 @@ https://t.me/DecorGoagha
 </section>
 
 
+<!-- ================================================= -->
+<!-- تبويبة ادعُ أصدقاءك الجديدة -->
+<!-- ================================================= -->
+
+<section id="invite" class="page">
+
+    <div class="card">
+
+        <h2>👥 ادعُ أصدقاءك</h2>
+
+        <p class="description">
+            ساعد أصدقاءك في الوصول إلى ديكور غو.
+            إذا كنت تعرف شخصاً عم يجهّز أو يكسّي بيته،
+            شارك معه التطبيق وخليه يستفيد من خدماتنا.
+        </p>
+
+        <div class="invite-box">
+
+            <div class="invite-title">
+                📲 كيف تعمل الدعوة؟
+            </div>
+
+            1️⃣ اضغط على زر مشاركة الدعوة.<br>
+            2️⃣ أرسل ديكور غو إلى صديقك عبر واتساب.<br>
+            3️⃣ عندما يسجل صديقك، يخبرنا باسم الشخص الذي دعاه ورقم هاتفه.<br>
+            4️⃣ نحن نراجع بيانات الدعوة ونسجلها لدينا.
+
+        </div>
+
+        <div class="invite-highlight">
+
+            🎁 <strong>فكرة الدعوة:</strong><br>
+
+            إذا كنت تعرف شخصاً يحتاج إلى الإكساء أو الديكور،
+            لا تخليه يضيّع وقته بين الأسواق والمعارض.
+            ابعتله ديكور غو وخليه يجرب بنفسه.
+
+        </div>
+
+        <!-- زر مشاركة الدعوة -->
+        <button class="main-button gold-button"
+                onclick="shareInvite()">
+            📲 ادعُ صديقاً عبر واتساب
+        </button>
+
+        <div class="invite-box">
+
+            <div class="invite-title">
+                📝 هل دعاك أحد إلى ديكور غو؟
+            </div>
+
+            <p class="description">
+                إذا سجلت في ديكور غو عن طريق أحد أصدقائك،
+                اكتب اسمه ورقم هاتفه حتى نستطيع تسجيل الدعوة.
+            </p>
+
+            <form onsubmit="sendInvite(event)">
+
+                <label>
+                    اسم الشخص الذي دعاك
+                </label>
+
+                <input
+                    type="text"
+                    id="inviterName"
+                    placeholder="اكتب اسم الشخص"
+                    required
+                >
+
+                <label>
+                    رقم هاتف الشخص الذي دعاك
+                </label>
+
+                <input
+                    type="tel"
+                    id="inviterPhone"
+                    placeholder="مثال: 099xxxxxxx"
+                    required
+                >
+
+                <button class="main-button" type="submit">
+                    📲 إرسال بيانات الدعوة عبر واتساب
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="info-box">
+            ℹ️ لا تحتاج إلى تعديل نظام تسجيل الدخول.
+            هذه التبويبة مستقلة، ويتم إرسال معلومات الدعوة عبر واتساب
+            ليتم تنظيمها ومراجعتها بشكل يدوي.
+        </div>
+
+    </div>
+
+</section>
+
+
 <!-- تحميل التطبيق -->
 <section id="download" class="page">
 
@@ -490,14 +631,12 @@ https://t.me/DecorGoagha
 
         <div class="download-box">
 
-            <!-- التحميل المباشر -->
             <a class="download-button"
                href="https://www.appcreator24.com/app4030820-alhd2n"
                target="_blank">
                 📲 تحميل التطبيق مباشرة
             </a>
 
-            <!-- التحميل من تلغرام -->
             <a class="download-button telegram"
                href="https://t.me/DecorGoagha"
                target="_blank">
@@ -668,6 +807,59 @@ function sendContest(event) {
 }
 
 
+/* ================================================= */
+/* مشاركة دعوة عبر واتساب */
+/* ================================================= */
+
+function shareInvite() {
+
+    const message =
+        "👋 أهلاً!\n\n" +
+        "إذا كنت عم تجهّز أو تكسّي بيتك، جرّب ديكور غو 🏠\n\n" +
+        "منصة لخدمات الإكساء والديكور، " +
+        "وفيك تطلب معاينة مجانية وتتعرف على خدماتنا.\n\n" +
+        "📲 تحميل التطبيق:\n" +
+        "https://apk.e-droid.net/apk/app4030820-alhd2n.apk?v=4\n\n" +
+        "🌐 منصة ديكور غو:\n" +
+        "https://yyalmaz-prog.github.io/Decor-Go/index.html\n\n" +
+        "📲 تيليجرام:\n" +
+        "https://t.me/DecorGoagha\n\n" +
+        "إذا سجلت، اكتب اسم الشخص اللي دعاك ورقم هاتفه داخل تبويبة «ادعُ أصدقاءك».";
+
+    const url =
+        "https://wa.me/?text=" +
+        encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
+
+
+/* ================================================= */
+/* إرسال بيانات الشخص الذي دعاك */
+/* ================================================= */
+
+function sendInvite(event) {
+
+    event.preventDefault();
+
+    const inviterName =
+        document.getElementById("inviterName").value;
+
+    const inviterPhone =
+        document.getElementById("inviterPhone").value;
+
+    const message =
+        "👥 دعوة صديق - DECOR GO\n\n" +
+        "اسم الشخص الذي دعاك: " +
+        inviterName + "\n" +
+        "رقم هاتف الشخص الذي دعاك: " +
+        inviterPhone + "\n\n" +
+        "تم إرسال البيانات من خلال تبويبة «ادعُ أصدقاءك».";
+
+    openWhatsApp(message);
+}
+
+
 /* إرسال طلب ترحيل ردم */
 
 function sendRubble(event) {
@@ -676,7 +868,8 @@ function sendRubble(event) {
 
     const name = document.getElementById("rubbleName").value;
     const address = document.getElementById("rubbleAddress").value;
-    const detailedAddress = document.getElementById("rubbleDetailedAddress").value;
+    const detailedAddress =
+        document.getElementById("rubbleDetailedAddress").value;
 
     const message =
         "🚚 طلب ترحيل ردم - DECOR GO\n\n" +
@@ -706,7 +899,8 @@ function openWhatsApp(message) {
 
 function copyContest() {
 
-    const text = document.getElementById("contestText").innerText;
+    const text =
+        document.getElementById("contestText").innerText;
 
     navigator.clipboard.writeText(text).then(function() {
 
