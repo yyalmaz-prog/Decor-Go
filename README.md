@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>DECOR GO - ديكور غو</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -19,7 +22,10 @@ body {
     color: #222;
 }
 
-/* الهيدر */
+/* =========================
+   الهيدر
+   ========================= */
+
 header {
     background: #111;
     color: white;
@@ -46,7 +52,11 @@ header {
     color: #ddd;
 }
 
-/* القائمة */
+
+/* =========================
+   القائمة
+   ========================= */
+
 nav {
     background: white;
     display: flex;
@@ -73,7 +83,11 @@ nav button.active {
     color: white;
 }
 
-/* الصفحات */
+
+/* =========================
+   الصفحات
+   ========================= */
+
 .page {
     display: none;
     max-width: 900px;
@@ -103,7 +117,11 @@ h2 {
     margin-bottom: 25px;
 }
 
-/* أزرار */
+
+/* =========================
+   الأزرار
+   ========================= */
+
 .main-button {
     display: inline-block;
     width: 100%;
@@ -127,7 +145,9 @@ h2 {
     color: #111;
 }
 
+
 /* أزرار الواجهة الرئيسية */
+
 .home-button {
     margin-top: 12px;
 }
@@ -142,7 +162,11 @@ h2 {
     color: #111;
 }
 
-/* النماذج */
+
+/* =========================
+   النماذج
+   ========================= */
+
 label {
     display: block;
     margin-top: 15px;
@@ -166,7 +190,11 @@ textarea {
     resize: vertical;
 }
 
-/* منشور السحب */
+
+/* =========================
+   منشور السحب
+   ========================= */
+
 .contest-post {
     background: #fafafa;
     border: 1px solid #ddd;
@@ -186,7 +214,11 @@ textarea {
     line-height: 1.8;
 }
 
-/* صندوق الدعوات */
+
+/* =========================
+   صندوق الدعوات
+   ========================= */
+
 .invite-box {
     background: #fafafa;
     border: 1px solid #e2e2e2;
@@ -211,7 +243,57 @@ textarea {
     line-height: 1.9;
 }
 
-/* التحميل */
+
+/* =========================
+   تنسيق نص الدعوة
+   ========================= */
+
+.invitation-message-box {
+    background: #fff8e6;
+    border-right: 5px solid #d4a017;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 20px 0;
+    line-height: 2;
+    text-align: right;
+}
+
+.invitation-message-box .invitation-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8a6500;
+    margin-bottom: 12px;
+}
+
+.invitation-message-box p {
+    margin-bottom: 10px;
+}
+
+
+/* زر النسخ */
+
+.copy-invite-button {
+    background: #6c757d;
+    color: white;
+}
+
+.copy-invite-button:hover {
+    opacity: 0.85;
+}
+
+.invite-share-hint {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-top: 12px;
+}
+
+
+/* =========================
+   التحميل
+   ========================= */
+
 .download-box {
     display: grid;
     gap: 15px;
@@ -238,7 +320,11 @@ textarea {
     opacity: 0.85;
 }
 
-/* الفوتر */
+
+/* =========================
+   الفوتر
+   ========================= */
+
 footer {
     text-align: center;
     background: #111;
@@ -248,7 +334,11 @@ footer {
     line-height: 1.8;
 }
 
-/* الهاتف */
+
+/* =========================
+   الهاتف
+   ========================= */
+
 @media (max-width: 600px) {
 
     .logo {
@@ -276,19 +366,43 @@ footer {
     h2 {
         font-size: 23px;
     }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     الهيدر
+     ========================= -->
+
 <header>
-    <div class="logo">DECOR <span>GO</span></div>
-    <div class="subtitle">منصة خدمات الإكساء والديكور</div>
+
+    <div class="logo">
+        DECOR <span>GO</span>
+    </div>
+
+    <div class="subtitle">
+        منصة خدمات الإكساء والديكور
+    </div>
+
 </header>
 
+
+<!-- =========================
+     القائمة
+     ========================= -->
+
 <nav>
-    <button class="active" onclick="showPage('home', this)">🏠 الرئيسية</button>
+
+    <button onclick="showPage('home', this)">
+        🏠 الرئيسية
+    </button>
 
     <button onclick="showPage('service', this)">
         🛠️ اطلب خدمة
@@ -302,7 +416,6 @@ footer {
         🎁 ادخل السحب
     </button>
 
-    <!-- التبويبة الجديدة -->
     <button onclick="showPage('invite', this)">
         👥 ادعُ أصدقاءك
     </button>
@@ -314,15 +427,22 @@ footer {
     <button onclick="showPage('rubble', this)">
         🚚 ترحيل ردم
     </button>
+
 </nav>
 
 
-<!-- الرئيسية -->
+
+<!-- ==================================================
+     الرئيسية
+     ================================================== -->
+
 <section id="home" class="page active">
 
     <div class="card">
 
-        <h2>أهلاً وسهلاً بك في DECOR GO</h2>
+        <h2>
+            أهلاً وسهلاً بك في DECOR GO
+        </h2>
 
         <p class="description">
             منصة ديكور غو تساعدك في الوصول إلى خدمات الإكساء والديكور،
@@ -331,25 +451,36 @@ footer {
         </p>
 
         <div class="info-box">
+
             🔨 خدمات إكساء وديكور<br>
             👷 فنيين وخدمات أمامك<br>
             📐 معاينة مجانية<br>
             💰 حساب تقديري للتكاليف<br>
             🎁 سحب شهري على جوائز نقدية
+
         </div>
 
-        <button class="main-button gold-button home-button"
-                onclick="showPageById('inspection')">
+
+        <button
+            class="main-button gold-button home-button"
+            onclick="showPageById('inspection')"
+        >
             📐 اطلب معاينة مجانية
         </button>
 
-        <button class="main-button home-button download-home"
-                onclick="showPageById('download')">
+
+        <button
+            class="main-button home-button download-home"
+            onclick="showPageById('download')"
+        >
             📲 تحميل التطبيق
         </button>
 
-        <button class="main-button home-button contest-home"
-                onclick="showPageById('contest')">
+
+        <button
+            class="main-button home-button contest-home"
+            onclick="showPageById('contest')"
+        >
             🎁 ادخل السحب
         </button>
 
@@ -358,7 +489,11 @@ footer {
 </section>
 
 
-<!-- طلب خدمة -->
+
+<!-- ==================================================
+     طلب خدمة
+     ================================================== -->
+
 <section id="service" class="page">
 
     <div class="card">
@@ -369,14 +504,29 @@ footer {
             املأ المعلومات التالية وسنتواصل معك عبر واتساب.
         </p>
 
+
         <form onsubmit="sendService(event)">
 
             <label>الاسم</label>
-            <input type="text" id="serviceName" required>
+
+            <input
+                type="text"
+                id="serviceName"
+                required
+            >
+
 
             <label>نوع الخدمة</label>
-            <select id="serviceType" required>
-                <option value="">اختر الخدمة</option>
+
+            <select
+                id="serviceType"
+                required
+            >
+
+                <option value="">
+                    اختر الخدمة
+                </option>
+
                 <option>إكساء كامل</option>
                 <option>ديكور داخلي</option>
                 <option>دهان</option>
@@ -388,15 +538,32 @@ footer {
                 <option>أعمال كهرباء</option>
                 <option>أعمال صحية</option>
                 <option>خدمة أخرى</option>
+
             </select>
 
+
             <label>العنوان</label>
-            <input type="text" id="serviceAddress" required>
+
+            <input
+                type="text"
+                id="serviceAddress"
+                required
+            >
+
 
             <label>رقم الهاتف</label>
-            <input type="tel" id="servicePhone" required>
 
-            <button class="main-button" type="submit">
+            <input
+                type="tel"
+                id="servicePhone"
+                required
+            >
+
+
+            <button
+                class="main-button"
+                type="submit"
+            >
                 📲 إرسال الطلب إلى واتساب
             </button>
 
@@ -407,7 +574,11 @@ footer {
 </section>
 
 
-<!-- المعاينة -->
+
+<!-- ==================================================
+     معاينة مجانية
+     ================================================== -->
+
 <section id="inspection" class="page">
 
     <div class="card">
@@ -418,26 +589,56 @@ footer {
             اطلب معاينة مجانية لمشروعك وسنتواصل معك لتحديد التفاصيل.
         </p>
 
+
         <form onsubmit="sendInspection(event)">
 
             <label>المنطقة</label>
 
-            <select id="inspectionArea" required>
-                <option value="">اختر المنطقة</option>
+            <select
+                id="inspectionArea"
+                required
+            >
+
+                <option value="">
+                    اختر المنطقة
+                </option>
+
                 <option>دمشق</option>
                 <option>ريف دمشق</option>
+
             </select>
 
+
             <label>الاسم</label>
-            <input type="text" id="inspectionName" required>
+
+            <input
+                type="text"
+                id="inspectionName"
+                required
+            >
+
 
             <label>رقم الهاتف</label>
-            <input type="tel" id="inspectionPhone" required>
+
+            <input
+                type="tel"
+                id="inspectionPhone"
+                required
+            >
+
 
             <label>العنوان بالتفصيل</label>
-            <textarea id="inspectionAddress" required></textarea>
 
-            <button class="main-button" type="submit">
+            <textarea
+                id="inspectionAddress"
+                required
+            ></textarea>
+
+
+            <button
+                class="main-button"
+                type="submit"
+            >
                 📲 طلب المعاينة عبر واتساب
             </button>
 
@@ -448,7 +649,11 @@ footer {
 </section>
 
 
-<!-- السحب -->
+
+<!-- ==================================================
+     السحب
+     ================================================== -->
+
 <section id="contest" class="page">
 
     <div class="card">
@@ -459,7 +664,12 @@ footer {
             اقرأ المنشور، ثم شاركه وسجل معلوماتك للدخول في السحب.
         </p>
 
-        <div id="contestText" class="contest-post">
+
+        <div
+            id="contestText"
+            class="contest-post"
+        >
+
 🏠 ليش تجيب فني وتخجل منه بمعاينته وتبلش تنفيذ معه، وإنت فقط كنت بدك تعرف شو التكلفة أو شو بيتك بده مواد؟
 
 مع ديكور غو نحنا منجي لعندك ونعمل المعاينة مجاناً، وما في أي التزام عليك بالتنفيذ معنا.
@@ -468,11 +678,9 @@ footer {
 
 🔹 عاين… احسب… وبعدها قرر.
 
-ديكور غو مو تطبيق بيربط الفني بالعميل.
-نحنا مسؤولين عن العمل من بدايته حتى آخر مرحلة من التشطيب.
+ديكور غو مو تطبيق بيربط الفني بالعميل. نحنا مسؤولين عن العمل من بدايته حتى آخر مرحلة من التشطيب.
 
-وكمان السوق كله صار بين إيديك 📱
-تصفح المواد، احسب تكلفتها واعمل فاتورتك بنفسك.
+وكمان السوق كله صار بين إيديك 📱 تصفح المواد، احسب تكلفتها واعمل فاتورتك بنفسك.
 
 📲 حمل تطبيق ديكور غو مباشرة من الرابط.
 🌐 جرب منصتنا.
@@ -488,27 +696,50 @@ https://yyalmaz-prog.github.io/Decor-Go/index.html
 
 📲 قناة تيليجرام:
 https://t.me/DecorGoagha
+
         </div>
 
-        <button class="main-button gold-button"
-                onclick="copyContest()">
+
+        <button
+            class="main-button gold-button"
+            onclick="copyContest()"
+        >
             📋 نسخ منشور السحب
         </button>
 
+
         <div class="info-box">
+
             بعد مشاركة المنشور، اكتب اسمك ورقم هاتفك
             وأرسل المعلومات عبر واتساب.
+
         </div>
+
 
         <form onsubmit="sendContest(event)">
 
             <label>الاسم</label>
-            <input type="text" id="contestName" required>
+
+            <input
+                type="text"
+                id="contestName"
+                required
+            >
+
 
             <label>رقم الهاتف</label>
-            <input type="tel" id="contestPhone" required>
 
-            <button class="main-button" type="submit">
+            <input
+                type="tel"
+                id="contestPhone"
+                required
+            >
+
+
+            <button
+                class="main-button"
+                type="submit"
+            >
                 🎁 إرسال بيانات الدخول للسحب
             </button>
 
@@ -519,9 +750,10 @@ https://t.me/DecorGoagha
 </section>
 
 
-<!-- ================================================= -->
-<!-- تبويبة ادعُ أصدقاءك الجديدة -->
-<!-- ================================================= -->
+
+<!-- ==================================================
+     دعوات الأصدقاء
+     ================================================== -->
 
 <section id="invite" class="page">
 
@@ -529,40 +761,73 @@ https://t.me/DecorGoagha
 
         <h2>👥 ادعُ أصدقاءك</h2>
 
+
         <p class="description">
-            ساعد أصدقاءك في الوصول إلى ديكور غو.
-            إذا كنت تعرف شخصاً عم يجهّز أو يكسّي بيته،
-            شارك معه التطبيق وخليه يستفيد من خدماتنا.
+
+            شارك ديكور غو مع أصدقائك،
+            وساعدهم على الوصول إلى خدمات الإكساء والديكور
+            والاستفادة من عروضنا وخدماتنا.
+
         </p>
 
-        <div class="invite-box">
 
-            <div class="invite-title">
-                📲 كيف تعمل الدعوة؟
+        <!-- =========================
+             رسالة الدعوة
+             ========================= -->
+
+        <div class="invitation-message-box">
+
+            <div class="invitation-title">
+                🎁 رسالة الدعوة
             </div>
 
-            1️⃣ اضغط على زر مشاركة الدعوة.<br>
-            2️⃣ أرسل ديكور غو إلى صديقك عبر واتساب.<br>
-            3️⃣ عندما يسجل صديقك، يخبرنا باسم الشخص الذي دعاه ورقم هاتفه.<br>
-            4️⃣ نحن نراجع بيانات الدعوة ونسجلها لدينا.
+
+            <p>
+                يمكنك إرسال الدعوة مباشرة عبر واتساب،
+                أو نسخها وإرسالها عبر Messenger أو Telegram
+                أو أي تطبيق تواصل آخر.
+            </p>
 
         </div>
 
-        <div class="invite-highlight">
 
-            🎁 <strong>فكرة الدعوة:</strong><br>
+        <!-- =========================
+             زر واتساب
+             ========================= -->
 
-            إذا كنت تعرف شخصاً يحتاج إلى الإكساء أو الديكور،
-            لا تخليه يضيّع وقته بين الأسواق والمعارض.
-            ابعتله ديكور غو وخليه يجرب بنفسه.
-
-        </div>
-
-        <!-- زر مشاركة الدعوة -->
-        <button class="main-button gold-button"
-                onclick="shareInvite()">
-            📲 ادعُ صديقاً عبر واتساب
+        <button
+            class="main-button gold-button"
+            onclick="shareInvite()"
+        >
+            📲 إرسال الدعوة عبر واتساب
         </button>
+
+
+        <!-- =========================
+             زر النسخ
+             ========================= -->
+
+        <button
+            class="main-button copy-invite-button"
+            onclick="copyInvite()"
+        >
+            📋 نسخ الدعوة
+        </button>
+
+
+        <div class="invite-share-hint">
+
+            بعد نسخ الدعوة، يمكنك لصقها وإرسالها
+            عبر واتساب أو Messenger أو Telegram
+            أو أي تطبيق آخر.
+
+        </div>
+
+
+
+        <!-- =========================
+             هل دعاك أحد؟
+             ========================= -->
 
         <div class="invite-box">
 
@@ -570,10 +835,14 @@ https://t.me/DecorGoagha
                 📝 هل دعاك أحد إلى ديكور غو؟
             </div>
 
+
             <p class="description">
+
                 إذا سجلت في ديكور غو عن طريق أحد أصدقائك،
                 اكتب اسمه ورقم هاتفه حتى نستطيع تسجيل الدعوة.
+
             </p>
+
 
             <form onsubmit="sendInvite(event)">
 
@@ -588,6 +857,7 @@ https://t.me/DecorGoagha
                     required
                 >
 
+
                 <label>
                     رقم هاتف الشخص الذي دعاك
                 </label>
@@ -599,7 +869,11 @@ https://t.me/DecorGoagha
                     required
                 >
 
-                <button class="main-button" type="submit">
+
+                <button
+                    class="main-button"
+                    type="submit"
+                >
                     📲 إرسال بيانات الدعوة عبر واتساب
                 </button>
 
@@ -607,10 +881,13 @@ https://t.me/DecorGoagha
 
         </div>
 
+
         <div class="info-box">
+
             ℹ️ لا تحتاج إلى تعديل نظام تسجيل الدخول.
             هذه التبويبة مستقلة، ويتم إرسال معلومات الدعوة عبر واتساب
             ليتم تنظيمها ومراجعتها بشكل يدوي.
+
         </div>
 
     </div>
@@ -618,7 +895,11 @@ https://t.me/DecorGoagha
 </section>
 
 
-<!-- تحميل التطبيق -->
+
+<!-- ==================================================
+     تحميل التطبيق
+     ================================================== -->
+
 <section id="download" class="page">
 
     <div class="card">
@@ -626,27 +907,41 @@ https://t.me/DecorGoagha
         <h2>📲 تحميل تطبيق DECOR GO</h2>
 
         <p class="description">
+
             حمّل تطبيق ديكور غو بسهولة من خلال أحد الخيارين التاليين:
+
         </p>
+
 
         <div class="download-box">
 
-            <a class="download-button"
-               href="https://www.appcreator24.com/app4030820-alhd2n"
-               target="_blank">
+
+            <a
+                class="download-button"
+                href="https://www.appcreator24.com/app4030820-alhd2n"
+                target="_blank"
+            >
                 📲 تحميل التطبيق مباشرة
             </a>
 
-            <a class="download-button telegram"
-               href="https://t.me/DecorGoagha"
-               target="_blank">
+
+            <a
+                class="download-button telegram"
+                href="https://t.me/DecorGoagha"
+                target="_blank"
+            >
                 ✈️ تحميل التطبيق عبر تلغرام
             </a>
 
+
         </div>
 
+
         <div class="info-box">
-            إذا واجهتك مشكلة في التحميل، تواصل معنا عبر واتساب.
+
+            إذا واجهتك مشكلة في التحميل،
+            تواصل معنا عبر واتساب.
+
         </div>
 
     </div>
@@ -654,7 +949,11 @@ https://t.me/DecorGoagha
 </section>
 
 
-<!-- ترحيل ردم -->
+
+<!-- ==================================================
+     ترحيل ردم
+     ================================================== -->
+
 <section id="rubble" class="page">
 
     <div class="card">
@@ -662,21 +961,45 @@ https://t.me/DecorGoagha
         <h2>🚚 ترحيل ردم</h2>
 
         <p class="description">
-            املأ المعلومات التالية وسنتواصل معك عبر واتساب لتنسيق خدمة ترحيل الردم.
+
+            املأ المعلومات التالية وسنتواصل معك عبر واتساب
+            لتنسيق خدمة ترحيل الردم.
+
         </p>
+
 
         <form onsubmit="sendRubble(event)">
 
             <label>الاسم</label>
-            <input type="text" id="rubbleName" required>
+
+            <input
+                type="text"
+                id="rubbleName"
+                required
+            >
+
 
             <label>العنوان</label>
-            <input type="text" id="rubbleAddress" required>
+
+            <input
+                type="text"
+                id="rubbleAddress"
+                required
+            >
+
 
             <label>العنوان بالتفصيل</label>
-            <textarea id="rubbleDetailedAddress" required></textarea>
 
-            <button class="main-button" type="submit">
+            <textarea
+                id="rubbleDetailedAddress"
+                required
+            ></textarea>
+
+
+            <button
+                class="main-button"
+                type="submit"
+            >
                 📲 إرسال المعلومات إلى واتساب
             </button>
 
@@ -687,11 +1010,25 @@ https://t.me/DecorGoagha
 </section>
 
 
+
+<!-- ==================================================
+     الفوتر
+     ================================================== -->
+
 <footer>
-    <strong>DECOR GO</strong><br>
-    منصة خدمات الإكساء والديكور<br>
+
+    <strong>DECOR GO</strong>
+
+    <br>
+
+    منصة خدمات الإكساء والديكور
+
+    <br>
+
     جميع الحقوق محفوظة © 2026
+
 </footer>
+
 
 
 <script>
@@ -699,189 +1036,477 @@ https://t.me/DecorGoagha
 const whatsappNumber = "963998574957";
 
 
-/* تبديل الصفحات */
+/* =================================================
+   تبديل الصفحات
+   ================================================= */
 
 function showPage(pageId, button) {
 
-    document.querySelectorAll(".page").forEach(function(page) {
-        page.classList.remove("active");
-    });
+    document
+        .querySelectorAll(".page")
+        .forEach(function(page) {
 
-    document.getElementById(pageId).classList.add("active");
+            page.classList.remove("active");
 
-    document.querySelectorAll("nav button").forEach(function(btn) {
-        btn.classList.remove("active");
-    });
+        });
+
+
+    document
+        .getElementById(pageId)
+        .classList.add("active");
+
+
+    document
+        .querySelectorAll("nav button")
+        .forEach(function(btn) {
+
+            btn.classList.remove("active");
+
+        });
+
 
     if (button) {
+
         button.classList.add("active");
+
     }
+
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 
-/* فتح صفحة من زر داخل الصفحة */
+/* =================================================
+   فتح صفحة من زر داخل الصفحة
+   ================================================= */
 
 function showPageById(pageId) {
 
-    document.querySelectorAll(".page").forEach(function(page) {
-        page.classList.remove("active");
-    });
+    document
+        .querySelectorAll(".page")
+        .forEach(function(page) {
 
-    document.getElementById(pageId).classList.add("active");
+            page.classList.remove("active");
 
-    document.querySelectorAll("nav button").forEach(function(btn) {
-        btn.classList.remove("active");
-    });
+        });
+
+
+    document
+        .getElementById(pageId)
+        .classList.add("active");
+
+
+    document
+        .querySelectorAll("nav button")
+        .forEach(function(btn) {
+
+            btn.classList.remove("active");
+
+        });
+
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 
-/* إرسال طلب خدمة */
+/* =================================================
+   إرسال طلب خدمة
+   ================================================= */
 
 function sendService(event) {
 
     event.preventDefault();
 
-    const name = document.getElementById("serviceName").value;
-    const service = document.getElementById("serviceType").value;
-    const address = document.getElementById("serviceAddress").value;
-    const phone = document.getElementById("servicePhone").value;
+
+    const name =
+        document.getElementById("serviceName").value;
+
+    const service =
+        document.getElementById("serviceType").value;
+
+    const address =
+        document.getElementById("serviceAddress").value;
+
+    const phone =
+        document.getElementById("servicePhone").value;
+
 
     const message =
         "🛠️ طلب خدمة جديد - DECOR GO\n\n" +
-        "الاسم: " + name + "\n" +
-        "نوع الخدمة: " + service + "\n" +
-        "العنوان: " + address + "\n" +
-        "رقم الهاتف: " + phone;
+
+        "الاسم: " +
+        name +
+        "\n" +
+
+        "نوع الخدمة: " +
+        service +
+        "\n" +
+
+        "العنوان: " +
+        address +
+        "\n" +
+
+        "رقم الهاتف: " +
+        phone;
+
 
     openWhatsApp(message);
+
 }
 
 
-/* إرسال طلب معاينة */
+/* =================================================
+   إرسال طلب معاينة
+   ================================================= */
 
 function sendInspection(event) {
 
     event.preventDefault();
 
-    const area = document.getElementById("inspectionArea").value;
-    const name = document.getElementById("inspectionName").value;
-    const phone = document.getElementById("inspectionPhone").value;
-    const address = document.getElementById("inspectionAddress").value;
+
+    const area =
+        document.getElementById("inspectionArea").value;
+
+    const name =
+        document.getElementById("inspectionName").value;
+
+    const phone =
+        document.getElementById("inspectionPhone").value;
+
+    const address =
+        document.getElementById("inspectionAddress").value;
+
 
     const message =
         "📐 طلب معاينة مجانية - DECOR GO\n\n" +
-        "المنطقة: " + area + "\n" +
-        "الاسم: " + name + "\n" +
-        "رقم الهاتف: " + phone + "\n" +
-        "العنوان بالتفصيل: " + address;
+
+        "المنطقة: " +
+        area +
+        "\n" +
+
+        "الاسم: " +
+        name +
+        "\n" +
+
+        "رقم الهاتف: " +
+        phone +
+        "\n" +
+
+        "العنوان بالتفصيل: " +
+        address;
+
 
     openWhatsApp(message);
+
 }
 
 
-/* إرسال بيانات السحب */
+/* =================================================
+   إرسال بيانات السحب
+   ================================================= */
 
 function sendContest(event) {
 
     event.preventDefault();
 
-    const name = document.getElementById("contestName").value;
-    const phone = document.getElementById("contestPhone").value;
+
+    const name =
+        document.getElementById("contestName").value;
+
+    const phone =
+        document.getElementById("contestPhone").value;
+
 
     const message =
         "🎁 تسجيل في السحب الشهري - DECOR GO\n\n" +
-        "الاسم: " + name + "\n" +
-        "رقم الهاتف: " + phone;
+
+        "الاسم: " +
+        name +
+        "\n" +
+
+        "رقم الهاتف: " +
+        phone;
+
 
     openWhatsApp(message);
+
 }
 
 
-/* ================================================= */
-/* مشاركة دعوة عبر واتساب */
-/* ================================================= */
+/* =================================================
+   نص دعوة الأصدقاء
+   ================================================= */
+
+function getInviteMessage() {
+
+    return `🎁 جوائز نقدية، إكساء منزلك مجانًا وخصومات على خدماتنا قد تكون من نصيبك من خلال دعوة أصدقائك.
+
+🏠 إذا كنت مهتمًا بالديكور والإكساء، حابب عرّفك على «ديكور غو».
+
+✨ مع ديكور غو فيك:
+
+📐 تخطط وتحسب تكلفة مشروعك
+🛍️ تتصفح خدمات ومواد الديكور
+👷 تطلب معاينة مجانية
+📱 وتتابع كل شيء من موبايلك
+
+📲 حمّل تطبيق ديكور غو:
+https://apk.e-droid.net/apk/app4030820-alhd2n.apk?v=4
+
+🌐 منصة ديكور غو:
+https://yyalmaz-prog.github.io/Decor-Go/index.html
+
+📢 تابعنا على تيليجرام:
+https://t.me/DecorGoagha
+
+🎁 وإذا وصلت إلى ديكور غو عن طريقي،
+ادخل إلى تبويبة «ادعُ أصدقاءك»
+واختر:
+
+«نعم، تمت دعوتي عن طريق صديق»
+
+ثم اكتب اسمي ورقم هاتفي،
+لتدخل السحب وتزيد فرصك في الربح.
+
+❤️ أهلاً وسهلاً فيك مع ديكور غو`;
+
+}
+
+
+/* =================================================
+   مشاركة دعوة عبر واتساب
+   ================================================= */
 
 function shareInvite() {
 
     const message =
-        "👋 أهلاً!\n\n" +
-        "إذا كنت عم تجهّز أو تكسّي بيتك، جرّب ديكور غو 🏠\n\n" +
-        "منصة لخدمات الإكساء والديكور، " +
-        "وفيك تطلب معاينة مجانية وتتعرف على خدماتنا.\n\n" +
-        "📲 تحميل التطبيق:\n" +
-        "https://apk.e-droid.net/apk/app4030820-alhd2n.apk?v=4\n\n" +
-        "🌐 منصة ديكور غو:\n" +
-        "https://yyalmaz-prog.github.io/Decor-Go/index.html\n\n" +
-        "📲 تيليجرام:\n" +
-        "https://t.me/DecorGoagha\n\n" +
-        "إذا سجلت، اكتب اسم الشخص اللي دعاك ورقم هاتفه داخل تبويبة «ادعُ أصدقاءك».";
+        getInviteMessage();
+
 
     const url =
         "https://wa.me/?text=" +
         encodeURIComponent(message);
 
-    window.open(url, "_blank");
+
+    window.open(
+        url,
+        "_blank"
+    );
+
 }
 
 
-/* ================================================= */
-/* إرسال بيانات الشخص الذي دعاك */
-/* ================================================= */
+/* =================================================
+   نسخ الدعوة
+   ================================================= */
+
+function copyInvite() {
+
+    const message =
+        getInviteMessage();
+
+
+    if (
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+    ) {
+
+        navigator.clipboard
+            .writeText(message)
+            .then(function() {
+
+                alert(
+                    "✅ تم نسخ الدعوة بنجاح!\n\nيمكنك الآن لصقها وإرسالها عبر واتساب أو Messenger أو Telegram أو أي تطبيق آخر."
+                );
+
+            })
+            .catch(function() {
+
+                fallbackCopyInvite(message);
+
+            });
+
+    } else {
+
+        fallbackCopyInvite(message);
+
+    }
+
+}
+
+
+/* =================================================
+   النسخ الاحتياطي
+   ================================================= */
+
+function fallbackCopyInvite(message) {
+
+    const textarea =
+        document.createElement("textarea");
+
+
+    textarea.value =
+        message;
+
+
+    textarea.style.position =
+        "fixed";
+
+
+    textarea.style.left =
+        "-9999px";
+
+
+    document.body.appendChild(
+        textarea
+    );
+
+
+    textarea.focus();
+
+    textarea.select();
+
+
+    try {
+
+        document.execCommand("copy");
+
+
+        alert(
+            "✅ تم نسخ الدعوة بنجاح!\n\nيمكنك الآن لصقها وإرسالها عبر واتساب أو Messenger أو Telegram أو أي تطبيق آخر."
+        );
+
+    }
+
+    catch (error) {
+
+        alert(
+            "⚠️ لم يتم النسخ تلقائيًا.\n\nيرجى نسخ الدعوة يدويًا."
+        );
+
+    }
+
+
+    document.body.removeChild(
+        textarea
+    );
+
+}
+
+
+/* =================================================
+   إرسال بيانات الشخص الذي دعاك
+   ================================================= */
 
 function sendInvite(event) {
 
     event.preventDefault();
 
+
     const inviterName =
-        document.getElementById("inviterName").value;
+        document
+            .getElementById("inviterName")
+            .value
+            .trim();
+
 
     const inviterPhone =
-        document.getElementById("inviterPhone").value;
+        document
+            .getElementById("inviterPhone")
+            .value
+            .trim();
+
+
+    if (!inviterName) {
+
+        alert(
+            "يرجى كتابة اسم الشخص الذي دعاك."
+        );
+
+        return;
+
+    }
+
+
+    if (!inviterPhone) {
+
+        alert(
+            "يرجى كتابة رقم هاتف الشخص الذي دعاك."
+        );
+
+        return;
+
+    }
+
 
     const message =
-        "👥 دعوة صديق - DECOR GO\n\n" +
-        "اسم الشخص الذي دعاك: " +
-        inviterName + "\n" +
-        "رقم هاتف الشخص الذي دعاك: " +
-        inviterPhone + "\n\n" +
-        "تم إرسال البيانات من خلال تبويبة «ادعُ أصدقاءك».";
+        "👥 دعوات الأصدقاء - DECOR GO\n\n" +
+
+        "تمت دعوتي عن طريق صديق.\n\n" +
+
+        "👤 اسم الشخص الذي دعاني:\n" +
+        inviterName +
+        "\n\n" +
+
+        "📱 رقم هاتف الشخص الذي دعاني:\n" +
+        inviterPhone;
+
 
     openWhatsApp(message);
+
 }
 
 
-/* إرسال طلب ترحيل ردم */
+/* =================================================
+   إرسال طلب ترحيل ردم
+   ================================================= */
 
 function sendRubble(event) {
 
     event.preventDefault();
 
-    const name = document.getElementById("rubbleName").value;
-    const address = document.getElementById("rubbleAddress").value;
+
+    const name =
+        document.getElementById("rubbleName").value;
+
+    const address =
+        document.getElementById("rubbleAddress").value;
+
     const detailedAddress =
         document.getElementById("rubbleDetailedAddress").value;
 
+
     const message =
         "🚚 طلب ترحيل ردم - DECOR GO\n\n" +
-        "الاسم: " + name + "\n" +
-        "العنوان: " + address + "\n" +
-        "العنوان بالتفصيل: " + detailedAddress;
+
+        "الاسم: " +
+        name +
+        "\n" +
+
+        "العنوان: " +
+        address +
+        "\n" +
+
+        "العنوان بالتفصيل: " +
+        detailedAddress;
+
 
     openWhatsApp(message);
+
 }
 
 
-/* واتساب */
+/* =================================================
+   واتساب
+   ================================================= */
 
 function openWhatsApp(message) {
 
@@ -891,26 +1516,57 @@ function openWhatsApp(message) {
         "?text=" +
         encodeURIComponent(message);
 
-    window.open(url, "_blank");
+
+    window.open(
+        url,
+        "_blank"
+    );
+
 }
 
 
-/* نسخ منشور السحب */
+/* =================================================
+   نسخ منشور السحب
+   ================================================= */
 
 function copyContest() {
 
     const text =
-        document.getElementById("contestText").innerText;
+        document
+            .getElementById("contestText")
+            .innerText;
 
-    navigator.clipboard.writeText(text).then(function() {
 
-        alert("✅ تم نسخ منشور السحب بنجاح");
+    if (
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+    ) {
 
-    }).catch(function() {
+        navigator.clipboard
+            .writeText(text)
+            .then(function() {
 
-        alert("❌ لم يتم النسخ. يمكنك تحديد النص ونسخه يدوياً.");
+                alert(
+                    "✅ تم نسخ منشور السحب بنجاح"
+                );
 
-    });
+            })
+            .catch(function() {
+
+                alert(
+                    "❌ لم يتم النسخ. يمكنك تحديد النص ونسخه يدوياً."
+                );
+
+            });
+
+    } else {
+
+        alert(
+            "❌ لم يتم النسخ. يمكنك تحديد النص ونسخه يدوياً."
+        );
+
+    }
+
 }
 
 </script>
