@@ -145,9 +145,6 @@ h2 {
     color: #111;
 }
 
-
-/* أزرار الواجهة الرئيسية */
-
 .home-button {
     margin-top: 12px;
 }
@@ -321,6 +318,119 @@ textarea {
 }
 
 
+/* ==================================================
+   حاسبة كميات المواد - DECOR GO
+   ================================================== */
+
+.quantity-intro {
+    background: #fff8df;
+    border-right: 5px solid #d4a017;
+    padding: 15px;
+    border-radius: 10px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.quantity-note {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-top: 8px;
+}
+
+.quantity-result {
+    display: none;
+    margin-top: 25px;
+}
+
+.quantity-wall-info {
+    background: #f8f8f8;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    padding: 15px;
+    line-height: 2;
+    margin-bottom: 15px;
+}
+
+.quantity-option {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 13px;
+    padding: 18px;
+    margin-bottom: 15px;
+}
+
+.quantity-option h3 {
+    color: #8a6500;
+    margin-bottom: 13px;
+    font-size: 19px;
+}
+
+.quantity-material {
+    line-height: 1.9;
+}
+
+.quantity-material-name {
+    font-weight: bold;
+    color: #222;
+    font-size: 16px;
+}
+
+.quantity-number {
+    color: #8a6500;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.quantity-area {
+    color: #777;
+    font-size: 13px;
+}
+
+.quantity-adhesive {
+    color: #8a6500;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.quantity-divider {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 14px 0;
+}
+
+.quantity-warning {
+    background: #fff8df;
+    border-right: 5px solid #d4a017;
+    border-radius: 10px;
+    padding: 15px;
+    line-height: 1.9;
+}
+
+.quantity-creator {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #8a6500;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.quantity-whatsapp {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background: #168c3b;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+
 /* =========================
    الفوتر
    ========================= */
@@ -412,6 +522,12 @@ footer {
         📐 معاينة مجانية
     </button>
 
+    <!-- التبويبة الجديدة -->
+
+    <button onclick="showPage('quantities', this)">
+        📐 احسب كميات المواد
+    </button>
+
     <button onclick="showPage('contest', this)">
         🎁 ادخل السحب
     </button>
@@ -478,7 +594,7 @@ footer {
 
 
         <button
-            class="main-button home-button contest-home"
+            class="main-button contest-home"
             onclick="showPageById('contest')"
         >
             🎁 ادخل السحب
@@ -651,6 +767,217 @@ footer {
 
 
 <!-- ==================================================
+     احسب كميات المواد
+     ================================================== -->
+
+<section id="quantities" class="page">
+
+    <div class="card">
+
+        <h2>📐 احسب كميات المواد</h2>
+
+        <p class="description">
+            احسب كمية مواد التكسية المطلوبة لحائط واحد
+            بطريقة سهلة وسريعة.
+        </p>
+
+
+        <div class="quantity-intro">
+
+            📏 أدخل طول الحائط وارتفاعه،
+            ثم اختر المواد التي تريد استخدامها.
+
+            <br>
+
+            📐 التطبيق يحسب لك الكميات حسب مساحة الحائط،
+            ويحسب اللاصق للمواد التي تم تحديد قاعدة اللاصق لها.
+
+        </div>
+
+
+        <!-- نوع الغرفة -->
+
+        <label>
+            نوع الغرفة
+        </label>
+
+        <select id="quantityRoomType">
+
+            <option value="">
+                اختر نوع الغرفة
+            </option>
+
+            <option>غرفة نوم</option>
+            <option>غرفة أطفال</option>
+            <option>غرفة ضيوف</option>
+            <option>صالون</option>
+            <option>غرفة معيشة</option>
+            <option>مدخل</option>
+            <option>ديكور شاشة</option>
+            <option>مكتب</option>
+            <option>محل</option>
+            <option>أخرى</option>
+
+        </select>
+
+
+        <!-- طول الحائط -->
+
+        <label>
+            طول الحائط بالمتر
+        </label>
+
+        <input
+            type="number"
+            id="quantityWallLength"
+            min="0.01"
+            step="0.01"
+            placeholder="مثال: 3"
+        >
+
+
+        <!-- ارتفاع الحائط -->
+
+        <label>
+            ارتفاع الحائط بالمتر
+        </label>
+
+        <input
+            type="number"
+            id="quantityWallHeight"
+            min="0.01"
+            step="0.01"
+            placeholder="مثال: 2.80"
+        >
+
+
+        <!-- المادة الأولى -->
+
+        <label>
+            المادة الأولى
+        </label>
+
+        <select id="quantityMaterial1">
+
+            <option value="">
+                اختر المادة الأولى
+            </option>
+
+        </select>
+
+
+        <!-- المادة الثانية -->
+
+        <label>
+            المادة الثانية
+            <span style="color:#999;">
+                (اختياري)
+            </span>
+        </label>
+
+        <select id="quantityMaterial2">
+
+            <option value="">
+                بدون مادة ثانية
+            </option>
+
+        </select>
+
+
+        <!-- المادة الثالثة -->
+
+        <label>
+            المادة الثالثة
+            <span style="color:#999;">
+                (اختياري)
+            </span>
+        </label>
+
+        <select id="quantityMaterial3">
+
+            <option value="">
+                بدون مادة ثالثة
+            </option>
+
+        </select>
+
+
+        <div class="quantity-note">
+
+            عند اختيار مادتين:
+            يتم إعطاء خيارات من لوح واحد أو لوحين من المادة الأولى،
+            والباقي من المادة الثانية.
+
+            <br><br>
+
+            عند المساحات الكبيرة يمكن أن يصل عدد ألواح المادة الأولى
+            إلى ثلاثة ألواح.
+
+        </div>
+
+
+        <button
+            class="main-button gold-button"
+            type="button"
+            onclick="calculateQuantities()"
+        >
+            📊 احسب الكميات
+        </button>
+
+
+        <!-- =========================
+             النتائج
+             ========================= -->
+
+        <div
+            id="quantityResult"
+            class="quantity-result"
+        >
+
+            <h3
+                style="
+                    color:#8a6500;
+                    margin-bottom:15px;
+                    font-size:22px;
+                "
+            >
+                📊 نتيجة الحساب
+            </h3>
+
+
+            <div
+                id="quantityWallInfo"
+                class="quantity-wall-info"
+            ></div>
+
+
+            <div
+                id="quantityResultsContainer"
+            ></div>
+
+
+            <div class="quantity-creator">
+                يحيى آغا / Yahea Agha
+            </div>
+
+
+            <a
+                class="quantity-whatsapp"
+                href="https://wa.me/963998574957"
+                target="_blank"
+            >
+                💬 للتوصية أو التواصل عبر واتساب
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
      السحب
      ================================================== -->
 
@@ -771,10 +1098,6 @@ https://t.me/DecorGoagha
         </p>
 
 
-        <!-- =========================
-             رسالة الدعوة
-             ========================= -->
-
         <div class="invitation-message-box">
 
             <div class="invitation-title">
@@ -791,10 +1114,6 @@ https://t.me/DecorGoagha
         </div>
 
 
-        <!-- =========================
-             زر واتساب
-             ========================= -->
-
         <button
             class="main-button gold-button"
             onclick="shareInvite()"
@@ -802,10 +1121,6 @@ https://t.me/DecorGoagha
             📲 إرسال الدعوة عبر واتساب
         </button>
 
-
-        <!-- =========================
-             زر النسخ
-             ========================= -->
 
         <button
             class="main-button copy-invite-button"
@@ -823,11 +1138,6 @@ https://t.me/DecorGoagha
 
         </div>
 
-
-
-        <!-- =========================
-             هل دعاك أحد؟
-             ========================= -->
 
         <div class="invite-box">
 
@@ -1125,7 +1435,6 @@ function sendService(event) {
 
     event.preventDefault();
 
-
     const name =
         document.getElementById("serviceName").value;
 
@@ -1171,7 +1480,6 @@ function sendInspection(event) {
 
     event.preventDefault();
 
-
     const area =
         document.getElementById("inspectionArea").value;
 
@@ -1216,7 +1524,6 @@ function sendInspection(event) {
 function sendContest(event) {
 
     event.preventDefault();
-
 
     const name =
         document.getElementById("contestName").value;
@@ -1342,10 +1649,6 @@ function copyInvite() {
 
 }
 
-
-/* =================================================
-   النسخ الاحتياطي
-   ================================================= */
 
 function fallbackCopyInvite(message) {
 
@@ -1568,6 +1871,914 @@ function copyContest() {
     }
 
 }
+
+
+/* =================================================
+   =================================================
+   حاسبة كميات المواد
+   =================================================
+   ================================================= */
+
+
+/* =========================
+   بيانات المواد
+   ========================= */
+
+const quantityMaterials = {
+
+    wood16: {
+        name: "بديل الخشب 16 سم × 290 سم",
+        width: 0.16,
+        height: 2.90,
+        type: "wood16"
+    },
+
+    wood20: {
+        name: "بديل الخشب 20 سم × 290 سم",
+        width: 0.20,
+        height: 2.90,
+        type: "wood20"
+    },
+
+    wood30: {
+        name: "بديل الخشب 30 سم × 290 سم",
+        width: 0.30,
+        height: 2.90,
+        type: "wood30"
+    },
+
+    flexibleWood60: {
+        name: "بديل الخشب 60 سم خشب مرن × 280 سم",
+        width: 0.60,
+        height: 2.80,
+        type: "flexibleWood60"
+    },
+
+    marble120x290: {
+        name: "بديل رخام 120 × 290 سم",
+        width: 1.20,
+        height: 2.90,
+        type: "panel2adhesive"
+    },
+
+    marble120x280: {
+        name: "بديل رخام 120 × 280 سم",
+        width: 1.20,
+        height: 2.80,
+        type: "panel2adhesive"
+    },
+
+    marbleRoll120x290: {
+        name: "رول بديل رخام 120 × 290 سم",
+        width: 1.20,
+        height: 2.90,
+        type: "roll"
+    },
+
+    stoneRoll120x290: {
+        name: "رول بديل حجر 120 × 290 سم",
+        width: 1.20,
+        height: 2.90,
+        type: "roll"
+    },
+
+    travertino130x290: {
+        name: "لوح ترافلتينو 130 × 290 سم",
+        width: 1.30,
+        height: 2.90,
+        type: "panel2adhesive"
+    },
+
+    stone60x120: {
+        name: "بديل الحجر 60 × 120 سم",
+        width: 0.60,
+        height: 1.20,
+        type: "stone"
+    }
+
+};
+
+
+/* =========================
+   تعبئة قوائم المواد
+   ========================= */
+
+function loadQuantityMaterials() {
+
+    const selects = [
+        document.getElementById("quantityMaterial1"),
+        document.getElementById("quantityMaterial2"),
+        document.getElementById("quantityMaterial3")
+    ];
+
+
+    selects.forEach(function(select) {
+
+        Object.keys(quantityMaterials)
+            .forEach(function(key) {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = key;
+
+                option.textContent =
+                    quantityMaterials[key].name;
+
+                select.appendChild(option);
+
+            });
+
+    });
+
+}
+
+
+/* =========================
+   حساب اللاصق
+   ========================= */
+
+function getQuantityAdhesive(
+    material,
+    quantity
+) {
+
+    if (quantity <= 0) {
+        return "";
+    }
+
+
+    /*
+       بديل الخشب 16:
+       كل 3 قطع = لاصق واحد
+    */
+
+    if (material.type === "wood16") {
+
+        return Math.ceil(quantity / 3)
+            + " لاصق سندويش كبير";
+
+    }
+
+
+    /*
+       بديل الخشب 30:
+       كل قطعتين = لاصق واحد
+    */
+
+    if (material.type === "wood30") {
+
+        return Math.ceil(quantity / 2)
+            + " لاصق سندويش كبير";
+
+    }
+
+
+    /*
+       بديل الرخام والترافلتينو:
+       كل لوح = 2 لاصق
+    */
+
+    if (material.type === "panel2adhesive") {
+
+        return (quantity * 2)
+            + " لاصق سندويش كبير";
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =========================
+   عرض مادة
+   ========================= */
+
+function quantityMaterialHTML(
+    material,
+    quantity
+) {
+
+    if (quantity <= 0) {
+        return "";
+    }
+
+
+    const materialArea =
+        material.width *
+        material.height;
+
+
+    const coveredArea =
+        quantity *
+        materialArea;
+
+
+    let html = `
+
+        <div class="quantity-material">
+
+            <div class="quantity-material-name">
+                ${material.name}
+            </div>
+
+            <div>
+                الكمية:
+                <span class="quantity-number">
+                    ${quantity}
+                </span>
+            </div>
+
+            <div class="quantity-area">
+                المساحة المغطاة تقريباً:
+                ${coveredArea.toFixed(2)} م²
+            </div>
+
+    `;
+
+
+    const adhesive =
+        getQuantityAdhesive(
+            material,
+            quantity
+        );
+
+
+    if (adhesive) {
+
+        html += `
+
+            <div class="quantity-adhesive">
+                🧴 ${adhesive}
+            </div>
+
+        `;
+
+    }
+
+
+    html += `
+        </div>
+    `;
+
+
+    return html;
+
+}
+
+
+/* =========================
+   حساب مادة واحدة
+   ========================= */
+
+function calculateSingleQuantity(
+    wallArea,
+    material
+) {
+
+    const materialArea =
+        material.width *
+        material.height;
+
+
+    return Math.ceil(
+        wallArea / materialArea
+    );
+
+}
+
+
+/* =========================
+   حساب الكمية المتبقية
+   ========================= */
+
+function calculateRemainingQuantity(
+    remainingArea,
+    material
+) {
+
+    if (remainingArea <= 0) {
+        return 0;
+    }
+
+
+    const materialArea =
+        material.width *
+        material.height;
+
+
+    return Math.ceil(
+        remainingArea / materialArea
+    );
+
+}
+
+
+/* =================================================
+   خيار مادتين
+   ================================================= */
+
+function createTwoMaterialOption(
+    wallArea,
+    material1,
+    material2,
+    panelCount,
+    optionNumber
+) {
+
+    const material1Area =
+        material1.width *
+        material1.height;
+
+
+    const usedArea =
+        panelCount *
+        material1Area;
+
+
+    /*
+       إذا الألواح غطت الحائط كله،
+       لا نعرض هذا الخيار.
+
+       وهذا مهم جداً حسب الاتفاق:
+       إذا لوحان غطوا كامل الحائط،
+       يبقى خيار لوح واحد + المادة الثانية.
+    */
+
+    if (usedArea >= wallArea) {
+        return "";
+    }
+
+
+    const remainingArea =
+        wallArea - usedArea;
+
+
+    const material2Quantity =
+        calculateRemainingQuantity(
+            remainingArea,
+            material2
+        );
+
+
+    let html = `
+
+        <div class="quantity-option">
+
+            <h3>
+                الخيار ${optionNumber}
+            </h3>
+
+            ${quantityMaterialHTML(
+                material1,
+                panelCount
+            )}
+
+            <hr class="quantity-divider">
+
+            ${quantityMaterialHTML(
+                material2,
+                material2Quantity
+            )}
+
+        </div>
+
+    `;
+
+
+    return html;
+
+}
+
+
+/* =================================================
+   خيار 3 مواد
+   ================================================= */
+
+function createThreeMaterialOption(
+    wallArea,
+    material1,
+    material2,
+    material3,
+    panelCount,
+    optionNumber
+) {
+
+    const material1Area =
+        material1.width *
+        material1.height;
+
+
+    const firstArea =
+        panelCount *
+        material1Area;
+
+
+    /*
+       لا نعرض الخيار إذا الألواح
+       تغطي الحائط كاملاً.
+    */
+
+    if (firstArea >= wallArea) {
+        return "";
+    }
+
+
+    let remainingArea =
+        wallArea - firstArea;
+
+
+    let html = `
+
+        <div class="quantity-option">
+
+            <h3>
+                الخيار ${optionNumber}
+            </h3>
+
+            ${quantityMaterialHTML(
+                material1,
+                panelCount
+            )}
+
+    `;
+
+
+    /*
+       في حالة 3 مواد:
+       نستخدم قطعة واحدة من المادة الثانية
+       إذا بقيت مساحة كافية،
+       ثم المادة الثالثة تكمل الباقي.
+
+       الهدف أن يبقى عدد الألواح الديكورية
+       محدوداً ومنطقياً.
+    */
+
+    const material2Area =
+        material2.width *
+        material2.height;
+
+
+    if (remainingArea > material2Area) {
+
+        html += `
+
+            <hr class="quantity-divider">
+
+            ${quantityMaterialHTML(
+                material2,
+                1
+            )}
+
+        `;
+
+
+        remainingArea -= material2Area;
+
+
+        const material3Quantity =
+            calculateRemainingQuantity(
+                remainingArea,
+                material3
+            );
+
+
+        if (material3Quantity > 0) {
+
+            html += `
+
+                <hr class="quantity-divider">
+
+                ${quantityMaterialHTML(
+                    material3,
+                    material3Quantity
+                )}
+
+            `;
+
+        }
+
+    } else {
+
+        const material3Quantity =
+            calculateRemainingQuantity(
+                remainingArea,
+                material3
+            );
+
+
+        html += `
+
+            <hr class="quantity-divider">
+
+            ${quantityMaterialHTML(
+                material3,
+                material3Quantity
+            )}
+
+        `;
+
+    }
+
+
+    html += `
+        </div>
+    `;
+
+
+    return html;
+
+}
+
+
+/* =================================================
+   الحساب الرئيسي
+   ================================================= */
+
+function calculateQuantities() {
+
+    const roomType =
+        document
+            .getElementById("quantityRoomType")
+            .value;
+
+
+    const wallLength =
+        parseFloat(
+            document
+                .getElementById("quantityWallLength")
+                .value
+        );
+
+
+    const wallHeight =
+        parseFloat(
+            document
+                .getElementById("quantityWallHeight")
+                .value
+        );
+
+
+    const material1Key =
+        document
+            .getElementById("quantityMaterial1")
+            .value;
+
+
+    const material2Key =
+        document
+            .getElementById("quantityMaterial2")
+            .value;
+
+
+    const material3Key =
+        document
+            .getElementById("quantityMaterial3")
+            .value;
+
+
+    /* =========================
+       التحقق
+       ========================= */
+
+    if (!roomType) {
+
+        alert(
+            "يرجى اختيار نوع الغرفة."
+        );
+
+        return;
+
+    }
+
+
+    if (!wallLength || wallLength <= 0) {
+
+        alert(
+            "يرجى إدخال طول الحائط بشكل صحيح."
+        );
+
+        return;
+
+    }
+
+
+    if (!wallHeight || wallHeight <= 0) {
+
+        alert(
+            "يرجى إدخال ارتفاع الحائط بشكل صحيح."
+        );
+
+        return;
+
+    }
+
+
+    if (!material1Key) {
+
+        alert(
+            "يرجى اختيار المادة الأولى."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       منع تكرار المادة
+    */
+
+    const selectedKeys = [
+        material1Key,
+        material2Key,
+        material3Key
+    ].filter(Boolean);
+
+
+    const uniqueKeys =
+        [...new Set(selectedKeys)];
+
+
+    if (
+        uniqueKeys.length !==
+        selectedKeys.length
+    ) {
+
+        alert(
+            "يرجى اختيار مواد مختلفة."
+        );
+
+        return;
+
+    }
+
+
+    /* =========================
+       مساحة الحائط
+       ========================= */
+
+    const wallArea =
+        wallLength *
+        wallHeight;
+
+
+    const selectedMaterials =
+        uniqueKeys.map(function(key) {
+
+            return quantityMaterials[key];
+
+        });
+
+
+    /* =========================
+       معلومات الحائط
+       ========================= */
+
+    document
+        .getElementById("quantityWallInfo")
+        .innerHTML = `
+
+            <strong>
+                نوع الغرفة:
+            </strong>
+            ${roomType}
+
+            <br>
+
+            <strong>
+                طول الحائط:
+            </strong>
+            ${wallLength.toFixed(2)} م
+
+            <br>
+
+            <strong>
+                ارتفاع الحائط:
+            </strong>
+            ${wallHeight.toFixed(2)} م
+
+            <br>
+
+            <strong>
+                مساحة الحائط:
+            </strong>
+            ${wallArea.toFixed(2)} م²
+
+        `;
+
+
+    let resultsHTML = "";
+
+
+    /* =================================================
+       مادة واحدة
+       ================================================= */
+
+    if (selectedMaterials.length === 1) {
+
+        const material =
+            selectedMaterials[0];
+
+
+        const quantity =
+            calculateSingleQuantity(
+                wallArea,
+                material
+            );
+
+
+        resultsHTML = `
+
+            <div class="quantity-option">
+
+                <h3>
+                    📦 الكمية المطلوبة
+                </h3>
+
+                ${quantityMaterialHTML(
+                    material,
+                    quantity
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* =================================================
+       مادتان
+       ================================================= */
+
+    else if (selectedMaterials.length === 2) {
+
+        const material1 =
+            selectedMaterials[0];
+
+        const material2 =
+            selectedMaterials[1];
+
+
+        /*
+           خيار لوح واحد
+        */
+
+        resultsHTML +=
+            createTwoMaterialOption(
+                wallArea,
+                material1,
+                material2,
+                1,
+                1
+            );
+
+
+        /*
+           خيار لوحين
+        */
+
+        resultsHTML +=
+            createTwoMaterialOption(
+                wallArea,
+                material1,
+                material2,
+                2,
+                2
+            );
+
+
+        if (!resultsHTML) {
+
+            resultsHTML = `
+
+                <div class="quantity-warning">
+
+                    مساحة الحائط لا تسمح بتوزيع المواد
+                    وفق الخيارات المحددة.
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+
+    /* =================================================
+       3 مواد
+       ================================================= */
+
+    else if (selectedMaterials.length === 3) {
+
+        const material1 =
+            selectedMaterials[0];
+
+        const material2 =
+            selectedMaterials[1];
+
+        const material3 =
+            selectedMaterials[2];
+
+
+        /*
+           خيار لوح واحد
+        */
+
+        resultsHTML +=
+            createThreeMaterialOption(
+                wallArea,
+                material1,
+                material2,
+                material3,
+                1,
+                1
+            );
+
+
+        /*
+           خيار لوحين
+        */
+
+        resultsHTML +=
+            createThreeMaterialOption(
+                wallArea,
+                material1,
+                material2,
+                material3,
+                2,
+                2
+            );
+
+
+        /*
+           خيار 3 ألواح للمساحات الكبيرة
+        */
+
+        resultsHTML +=
+            createThreeMaterialOption(
+                wallArea,
+                material1,
+                material2,
+                material3,
+                3,
+                3
+            );
+
+
+        if (!resultsHTML) {
+
+            resultsHTML = `
+
+                <div class="quantity-warning">
+
+                    مساحة الحائط لا تسمح باستخدام
+                    الألواح المختارة بهذه الطريقة.
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+
+    /* =========================
+       عرض النتائج
+       ========================= */
+
+    document
+        .getElementById("quantityResultsContainer")
+        .innerHTML =
+        resultsHTML;
+
+
+    document
+        .getElementById("quantityResult")
+        .style.display =
+        "block";
+
+
+    document
+        .getElementById("quantityResult")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+}
+
+
+/* =================================================
+   تشغيل حاسبة المواد
+   ================================================= */
+
+loadQuantityMaterials();
 
 </script>
 
